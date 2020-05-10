@@ -1,13 +1,26 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
+import Search from "./Search";
 
 class Books extends Component {
-	render() {
-		return(
-			<div>
+  constructor(props) {
+    super(props);
+    this.state = {
+      books: [],
+      searchField: "",
+    };
+  }
 
-			</div>
-		);
-	}
+  handleSearch = (e) => {
+	  this.setState({ searchField: e.target.value})
+  }
+
+  render() {
+    return (
+      <div>
+        <Search handleSearch={this.handleSearch}/>
+      </div>
+    );
+  }
 }
 
 export default Books;
